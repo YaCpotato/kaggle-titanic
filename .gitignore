@@ -1,8 +1,11 @@
 bin/
+etc/
+gender_submission.csv
+images/
 include/
 lib/
 pyvenv.cfg
-__pycache__/
+share/
+submission.csv
 test.csv
 train.csv
-gender_submission.csv
