@@ -9,11 +9,13 @@ def row_read():
     test = pd.read_csv('test.csv')
     return train,test
 
-train = pd.read_csv('train.csv')
-test = pd.read_csv('test.csv')
-sample = pd.read_csv('gender_submission.csv')
-
-data = pd.concat([train, test], sort = False)
+def processed_data():
+    """
+    データの前処理をして返すメソッド
+    """
+    train,test = row_read()
+    # あとから再度trainとtestに戻すので、並べかえはしない
+    data = pd.concat([train, test], sort = False)
 data['Sex'].replace(['male', 'female'],[0,1],inplace = True)
 data['Fare'].fillna(np.mean(data['Fare']), inplace = True)
 data['Embarked'].fillna(('S'), inplace=True)
